@@ -2,7 +2,7 @@
 <html lang="pt-Br">
 <head>
     <meta charset="utf-8">
-    <title>Controle de Vendas</title>
+    <title>Tela de Vendas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Le styles -->
@@ -38,15 +38,23 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="http://localhost/administrator/panel">Painel</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Usuários <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="usuario-consultar.html">Consultar</a></li>
+                        <li><a href="usuario-incluir.html">Incluir</a></li>
+                        <li><a href="usuario-alterar.html">Alterar</a></li>
+                        <li><a href="usuario-excluir.html">Excluir</a></li>
+                    </ul>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> João <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="http://localhost/user/profile">Perfil</a></li>
-                        <li><a href="http://localhost/user/notification">Notificações <span id="num-notification" class="badge"></span></a></li>
+                        <li><a href="http://localhost/user/profile">Perfil Administrador</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="http://localhost/user/logout">Sair</a></li>
+                        <li><a href="index.html">Sair</a></li>
                     </ul>
                 </li>
             </ul>
