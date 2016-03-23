@@ -1,0 +1,9 @@
+.my-stl {
+    background: #cecece;
+}
+
+/* Estilo - Página de login */
+#pagina-login {
+    margin-top: 10%;
+    border: 1px #ddd solid;
+}
