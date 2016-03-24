@@ -37,7 +37,26 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="http://localhost/administrator/panel">Painel</a></li>
+                <li><a href="http://localhost/administrator/panel">Painel</a></li>
+                <li><a href="#">Caixa</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Produtos <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Consultar</a></li>
+                        <li><a href="#">Incluir</a></li>
+                        <li><a href="#">Alterar</a></li>
+                        <li><a href="#">Excluir</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Fornecedores <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="fornecedor-consultar.html">Consultar</a></li>
+                        <li><a href="fornecedor-incluir.html">Incluir</a></li>
+                        <li><a href="fornecedor-alterar.html">Alterar</a></li>
+                        <li><a href="fornecedor-excluir.html">Excluir</a></li>
+                    </ul>
+                </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Usuários <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -52,7 +71,13 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> João <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="http://localhost/user/profile">Perfil Administrador</a></li>
+                        <li><a href="http://localhost/user/profile">Perfil Caixeiro</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="http://localhost/user/profile">Perfil Gerente</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="http://localhost/user/profile">Perfil Gestor de Compras</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="http://localhost/user/profile">Perfil Gestor de Estoque</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="index.html">Sair</a></li>
                     </ul>
