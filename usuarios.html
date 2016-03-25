@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="utf-8">
+    <title>Tela de Vendas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Le styles -->
+    <link href="css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="css/customize.css" media="screen" rel="stylesheet" type="text/css">
+    <!-- Scripts prev IE 9 -->
+    <!--[if lt IE 9]><script type="text/javascript" src="js/html5shiv.min.js"></script><![endif]-->
+    <!--[if lt IE 9]><script type="text/javascript" src="js/respond.min.js"></script><![endif]-->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-validator .js"></script>
+    <script type="text/javascript" src="js/jquery.form.min.js"></script>
+    <script type="text/javascript" src="js/jquery.maskedinput.pack.js"></script>
+    <script type="text/javascript" src="js/highcharts.js"></script>
+    <script type="text/javascript" src="js/exporting.js"></script>
+    <script type="text/javascript" src="js/customize.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand">Controle de Vendas</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="http://localhost/administrator/panel">Painel</a></li>
+                <li><a href="#">Caixa</a></li>
+                <li>
+                    <a href="produtos.html"> Produtos </a>
+                </li>
+                <li>
+                    <a href="fornecedores.html"> Fornecedores </a>
+                </li>
+                <li>
+                    <a href="usuarios.html"> Usuários </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> João <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="http://localhost/user/profile">Perfil Caixeiro</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="http://localhost/user/profile">Perfil Gerente</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="http://localhost/user/profile">Perfil Gestor de Compras</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="http://localhost/user/profile">Perfil Gestor de Estoque</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="index.html">Sair</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="container">
+    <div class="row">
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="dropdown active">
+                <a aria-expanded="false" href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents"> Consultar <span class="caret"></span></a>
+                <ul class="dropdown-menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
+                    <li class="active">
+                        <a id="us-consultar" onclick="" href="#panel-us-consultar" role="tab" data-toggle="tab" aria-controls="adm-panel-discipline-consult" aria-expanded="true">Disciplinas</a>
+                    </li>
+                    <li>
+                        <a id="adm-panel-school-consult-tab" onclick="" href="#adm-panel-school-consult" role="tab" data-toggle="tab" aria-controls="adm-panel-school-consult" aria-expanded="true">Escolas</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a onclick="" href="#panel-us-alterar" role="tab" data-toggle="tab" aria-controls="panel-us-alterar" aria-expanded="true"> Alterar </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div id="panel-us-consultar" role="tabpanel" class="tab-pane fade active in panel-div-tab"
+                 aria-labelledby="panel-us-consultar-tab">
+                <div class="panel panel-default my-panel">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">
+                        Estas são todas as disciplinas existentes atualmente em nossa base de dados. Você também pode colaborar
+                        adicionando novas e aprimorando a ferramenta dos professores.
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-horizontal" action="#" method="get">
+                            <div class="form-group">
+                                <div class="col-sm-3"></div>
+                                <div class="input-group col-sm-7">
+                                    <!-- <input type="hidden" name="action" value="discipline_consult"/> -->
+                                    <input name="q" data-tb-target="tb-panel-adm-consultdisciplines" type="search" class="form-control input-system-search"
+                                           placeholder="Procurar disciplinas..." required>
+                        <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" name="fetch" value="by_name"><i
+                                class="glyphicon glyphicon-search"></i></button>
+                        </span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Table -->
+                    <table id="tb-panel-adm-consultdisciplines" class="table table-bordered table-striped table-list-search">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody_disciplines">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="panel-us-alterar" role="tabpanel" class="tab-pane fade in panel-div-tab"
+                 aria-labelledby="panel-us-alterar-tab">
+                <div class="panel panel-default my-panel">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">
+                        <p>Cadastrar nova turma a escola.</p>
+                    </div>
+                    <div class="panel-body">
+                        <form id="form_team_create_new" class="form-horizontal">
+                            <div class="form-group">
+                                <label for="team_new_select_school" class="control-label col-sm-3">Escola</label>
+                                <div class="col-sm-5">
+                                    <select id="team_new_select_school" name="school_id" class="form-control" required="required"></select>
+                                </div>
+                            </div>
+                            <div id="div-register-curse-ec" class="form-group ocultar">
+                                <label for="team_new_select_curse" class="control-label col-sm-3">Curso</label>
+                                <div class="col-sm-5">
+                                    <select id="team_new_select_curse" name="curse_id" class="form-control" required="required"></select>
+                                </div>
+                            </div>
+                            <div id="div-register-team-ec" class="form-group ocultar">
+                                <label for="team_new_select_team" class="control-label col-sm-3">Turma</label>
+                                <div class="col-sm-5">
+                                    <input id="hidden_define_team_code" type="hidden" name="team_code" class="form-control" value="">
+                                    <select id="team_new_select_team" class="form-control disabled" required="required" disabled="disabled"></select>
+                                    <small>Este campo será preenchido automaticamente com base nos códigos identificadores de turmas disponíveis no sistema.</small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-3"></div>
+                                <div class="col-sm-5">
+                                    <input type="submit" class="form-control btn-default" value="Definir"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
