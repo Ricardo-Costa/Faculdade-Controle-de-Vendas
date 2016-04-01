@@ -31,7 +31,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="#" class="navbar-brand">Controle de Vendas</a>
+            <a href="#" class="navbar-brand titulo-sistema">Controle de Vendas</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -71,19 +71,17 @@
 <div class="container">
     <div class="row">
         <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="dropdown active">
-                <a aria-expanded="false" href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents"> Consultar <span class="caret"></span></a>
-                <ul class="dropdown-menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
-                    <li class="active">
-                        <a id="us-consultar" onclick="" href="#panel-us-consultar" role="tab" data-toggle="tab" aria-controls="adm-panel-discipline-consult" aria-expanded="true">Disciplinas</a>
-                    </li>
-                    <li>
-                        <a id="adm-panel-school-consult-tab" onclick="" href="#adm-panel-school-consult" role="tab" data-toggle="tab" aria-controls="adm-panel-school-consult" aria-expanded="true">Escolas</a>
-                    </li>
-                </ul>
+            <li class="active">
+                <a onclick="" href="#panel-us-consultar" role="tab" data-toggle="tab" aria-controls="panel-us-consultar" aria-expanded="true"> Consultar </a>
+            </li>
+            <li>
+                <a onclick="" href="#panel-us-incluir" role="tab" data-toggle="tab" aria-controls="panel-us-incluir" aria-expanded="true"> Incluir </a>
             </li>
             <li>
                 <a onclick="" href="#panel-us-alterar" role="tab" data-toggle="tab" aria-controls="panel-us-alterar" aria-expanded="true"> Alterar </a>
+            </li>
+            <li>
+                <a onclick="" href="#panel-us-excluir" role="tab" data-toggle="tab" aria-controls="panel-us-excluir" aria-expanded="true"> Excluir </a>
             </li>
         </ul>
         <div class="tab-content">
@@ -91,39 +89,75 @@
                  aria-labelledby="panel-us-consultar-tab">
                 <div class="panel panel-default my-panel">
                     <!-- Default panel contents -->
+                    <div class="panel-heading">Usuários registrados no sistema.</div>
+                    <div class="panel-body">
+                        <!-- Table -->
+                        <table id="tb-panel-teacher-studentsall" class="table table-bordered table-striped table-list-search">
+                            <thead>
+                            <tr>
+                                <th>Cod.</th>
+                                <th>Nome</th>
+                                <th>E-mail</th>
+                                <th>Relatório</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>4</td>
+                                <td>João da Silva</td>
+                                <td>joao.silva@mail.com</td>
+                                <td>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="">+</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>Carlos Antônio</td>
+                                <td>carlos.antonio@mail.com</td>
+                                <td>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="">+</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>Maria da Silva</td>
+                                <td>maria.silva@mail.com</td>
+                                <td>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="">+</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="panel-us-incluir" role="tabpanel" class="tab-pane fade in panel-div-tab"
+                 aria-labelledby="panel-us-inserir-tab">
+                <div class="panel panel-default my-panel">
+                    <!-- Default panel contents -->
                     <div class="panel-heading">
-                        Estas são todas as disciplinas existentes atualmente em nossa base de dados. Você também pode colaborar
-                        adicionando novas e aprimorando a ferramenta dos professores.
+                        <p>Cadastrar nova turma a escola.</p>
                     </div>
                     <div class="panel-body">
-                        <form class="form-horizontal" action="#" method="get">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-sm-3"> Escola </label>
+                                <div class="col-sm-5">
+                                    <select name="" class="form-control" required="required">
+                                        <option>lol</option>
+                                        <option>lol 1</option>
+                                        <option>lol 2</option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <div class="col-sm-3"></div>
-                                <div class="input-group col-sm-7">
-                                    <!-- <input type="hidden" name="action" value="discipline_consult"/> -->
-                                    <input name="q" data-tb-target="tb-panel-adm-consultdisciplines" type="search" class="form-control input-system-search"
-                                           placeholder="Procurar disciplinas..." required>
-                        <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" name="fetch" value="by_name"><i
-                                class="glyphicon glyphicon-search"></i></button>
-                        </span>
+                                <div class="col-sm-5">
+                                    <input type="submit" class="form-control btn-default" value="Definir"/>
                                 </div>
                             </div>
                         </form>
                     </div>
-
-                    <!-- Table -->
-                    <table id="tb-panel-adm-consultdisciplines" class="table table-bordered table-striped table-list-search">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nome</th>
-                            <th>Descrição</th>
-                        </tr>
-                        </thead>
-                        <tbody id="tbody_disciplines">
-                        </tbody>
-                    </table>
                 </div>
             </div>
             <div id="panel-us-alterar" role="tabpanel" class="tab-pane fade in panel-div-tab"
@@ -134,25 +168,44 @@
                         <p>Cadastrar nova turma a escola.</p>
                     </div>
                     <div class="panel-body">
-                        <form id="form_team_create_new" class="form-horizontal">
+                        <form class="form-horizontal">
                             <div class="form-group">
-                                <label for="team_new_select_school" class="control-label col-sm-3">Escola</label>
+                                <label class="control-label col-sm-3"> Escola </label>
                                 <div class="col-sm-5">
-                                    <select id="team_new_select_school" name="school_id" class="form-control" required="required"></select>
+                                    <select name="" class="form-control" required="required">
+                                        <option>lol</option>
+                                        <option>lol 1</option>
+                                        <option>lol 2</option>
+                                    </select>
                                 </div>
                             </div>
-                            <div id="div-register-curse-ec" class="form-group ocultar">
-                                <label for="team_new_select_curse" class="control-label col-sm-3">Curso</label>
+                            <div class="form-group">
+                                <div class="col-sm-3"></div>
                                 <div class="col-sm-5">
-                                    <select id="team_new_select_curse" name="curse_id" class="form-control" required="required"></select>
+                                    <input type="submit" class="form-control btn-default" value="Definir"/>
                                 </div>
                             </div>
-                            <div id="div-register-team-ec" class="form-group ocultar">
-                                <label for="team_new_select_team" class="control-label col-sm-3">Turma</label>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="panel-us-excluir" role="tabpanel" class="tab-pane fade in panel-div-tab"
+                 aria-labelledby="panel-us-excluir-tab">
+                <div class="panel panel-default my-panel">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">
+                        <p>Cadastrar nova turma a escola.</p>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-sm-3"> Escola </label>
                                 <div class="col-sm-5">
-                                    <input id="hidden_define_team_code" type="hidden" name="team_code" class="form-control" value="">
-                                    <select id="team_new_select_team" class="form-control disabled" required="required" disabled="disabled"></select>
-                                    <small>Este campo será preenchido automaticamente com base nos códigos identificadores de turmas disponíveis no sistema.</small>
+                                    <select name="" class="form-control" required="required">
+                                        <option>lol</option>
+                                        <option>lol 1</option>
+                                        <option>lol 2</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
