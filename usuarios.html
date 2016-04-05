@@ -21,6 +21,8 @@
     <script type="text/javascript" src="js/bootstrap.validator.js"></script>
     <!-- http://digitalbush.com/projects/masked-input-plugin/ -->
     <script type="text/javascript" src="js/jquery.maskedinput.pack.js"></script>
+    <!-- http://bootsnipp.com/snippets/featured/js-table-filter-simple-insensitive -->
+    <script type="text/javascript" src="js/table.search.js"></script>
     <!-- http://silviomoreto.github.io/bootstrap-select/examples/ -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
     <!-- Meus Script's JS -->
@@ -92,8 +94,22 @@
                     <!-- Default panel contents -->
                     <div class="panel-heading">Usuários registrados no sistema.</div>
                     <div class="panel-body">
+                        <form class="form-horizontal" action="#" method="get">
+                            <div class="form-group">
+                                <div class="col-sm-3"></div>
+                                <div class="input-group col-sm-7">
+                                    <input name="q" data-tb-target="tb-painel-us" type="search" class="form-control input-system-search"
+                                           placeholder="Buscar..." required="required" />
+                        <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" name="fetch" value="by_name"><i
+                                class="glyphicon glyphicon-search"></i></button>
+                        </span>
+                                </div>
+                            </div>
+                        </form>
+
                         <!-- Table -->
-                        <table id="tb-panel-teacher-studentsall" class="table table-bordered table-striped table-list-search">
+                        <table id="tb-painel-us" class="table table-bordered table-striped table-list-search">
                             <thead>
                             <tr>
                                 <th>Cod.</th>
@@ -108,8 +124,8 @@
                                 <td>João da Silva</td>
                                 <td>joao.silva@mail.com</td>
                                 <td>
-                                    <button type="button" class="btn btn-default btn-sm" onclick="excluirUsuario(4)" data-toggle="tooltip" data-placement="top" title="Editar"><span class="glyphicon glyphicon-pencil"></span></button>
-                                    <button type="button" class="btn btn-default btn-sm" onclick="" data-toggle="tooltip" data-placement="top" title="Relatório"><span class="glyphicon glyphicon-list-alt"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="editarUsuario(4)" data-toggle="tooltip" data-placement="top" title="Editar"><span class="glyphicon glyphicon-pencil"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="relatorioUsuario(4)" data-toggle="tooltip" data-placement="top" title="Relatório"><span class="glyphicon glyphicon-list-alt"></span></button>
                                     <button type="button" class="btn btn-default btn-sm" onclick="excluirUsuario(4)" data-toggle="tooltip" data-placement="top" title="Deletar"><span class="glyphicon glyphicon-trash"></span></button>
                                 </td>
                             </tr>
@@ -118,9 +134,9 @@
                                 <td>Carlos Antônio</td>
                                 <td>carlos.antonio@mail.com</td>
                                 <td>
-                                    <button type="button" class="btn btn-default btn-sm" onclick="" data-toggle="tooltip" data-placement="top" title="Editar"><span class="glyphicon glyphicon-pencil"></span></button>
-                                    <button type="button" class="btn btn-default btn-sm" onclick="" data-toggle="tooltip" data-placement="top" title="Relatório"><span class="glyphicon glyphicon-list-alt"></span></button>
-                                    <button type="button" class="btn btn-default btn-sm" onclick="excluirUsuario(4)" data-toggle="tooltip" data-placement="top" title="Deletar"><span class="glyphicon glyphicon-trash"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="editarUsuario(13)" data-toggle="tooltip" data-placement="top" title="Editar"><span class="glyphicon glyphicon-pencil"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="relatorioUsuario(13)" data-toggle="tooltip" data-placement="top" title="Relatório"><span class="glyphicon glyphicon-list-alt"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="excluirUsuario(13)" data-toggle="tooltip" data-placement="top" title="Deletar"><span class="glyphicon glyphicon-trash"></span></button>
                                 </td>
                             </tr>
                             <tr>
@@ -128,9 +144,9 @@
                                 <td>Maria da Silva</td>
                                 <td>maria.silva@mail.com</td>
                                 <td>
-                                    <button type="button" class="btn btn-default btn-sm" onclick="" data-toggle="tooltip" data-placement="top" title="Editar"><span class="glyphicon glyphicon-pencil"></span></button>
-                                    <button type="button" class="btn btn-default btn-sm" onclick="" data-toggle="tooltip" data-placement="top" title="Relatório"><span class="glyphicon glyphicon-list-alt"></span></button>
-                                    <button type="button" class="btn btn-default btn-sm" onclick="excluirUsuario(4)" data-toggle="tooltip" data-placement="top" title="Deletar"><span class="glyphicon glyphicon-trash"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="editarUsuario(15)" data-toggle="tooltip" data-placement="top" title="Editar"><span class="glyphicon glyphicon-pencil"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="relatorioUsuario(15)" data-toggle="tooltip" data-placement="top" title="Relatório"><span class="glyphicon glyphicon-list-alt"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="excluirUsuario(15)" data-toggle="tooltip" data-placement="top" title="Deletar"><span class="glyphicon glyphicon-trash"></span></button>
                                 </td>
                             </tr>
                             </tbody>

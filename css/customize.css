@@ -1,26 +1,28 @@
+/* Google Fonts - Importando fontes para H1 principais */
 @import url(https://fonts.googleapis.com/css?family=Indie+Flower);
 
+/* Estilo de títulos (H1) principais do sistema */
 .titulo-sistema {
     font-family: 'Indie Flower', cursive;
     font-size: 30px;
     font-weight: bold;
     opacity: 0.3;
 }
-
-.my-stl {
-    background: #cecece;
-}
-
 /* Estilo - Página de login */
 #pagina-login {
     margin-top: 10%;
     border: 1px #ddd solid;
 }
-
+/* definir espaçamento entre "Tabs" e paineis de usuários */
 .my-panel {
     margin-top: 10px;
 }
-
+/* Estilo de descrições de formulários */
 small.descricao {
     color: #6e6e6e;
+}
+/* Separador (Relatórios) */
+hr.separador {
+    border-top: dashed #cecece 1px;
+    display: block;
 }
