@@ -1,4 +1,35 @@
+/** Definições de Perfil de Usuários */
+const
+    CAIXEIRO = 1,
+    GESTOR_DE_COMPRAS = 2,
+    GESTOR_DE_ESTOQUE = 3,
+    GERENTE = 4;
+
+// formar string de verificação do cookie de sessao
+function formatStringCookie(tipo) {
+    return "perfil="+tipo;
+}
+
 $(document).ready(function () {
+
+    // TODO - verificar string de cookie
+    // verificar se existe usuário logado e qual o tipo de usuário
+    var cookiePerfil = document.cookie;
+    if (cookiePerfil) {
+        if (cookiePerfil == formatStringCookie(CAIXEIRO)) {
+            alert("Caixeiro logado...");
+        }
+        else if (cookiePerfil == formatStringCookie(GESTOR_DE_COMPRAS)) {
+            alert("Gestor de Compras logado...");
+        }
+        else if (cookiePerfil == formatStringCookie(GESTOR_DE_ESTOQUE)) {
+            alert("Gestor de Estoque logado...");
+        }
+        else {// gerente
+            alert("Gerente logado...");
+        }
+    }
+    delete (cookiePerfil);
 
     // funcionalidade de busca nos paineis
     $('.input-system-search').keyup(function () {
