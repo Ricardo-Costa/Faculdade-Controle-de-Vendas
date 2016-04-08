@@ -17,16 +17,16 @@ $(document).ready(function () {
     var cookiePerfil = document.cookie;
     if (cookiePerfil) {
         if (cookiePerfil == formatStringCookie(CAIXEIRO)) {
-            alert("Caixeiro logado...");
+            // alert("Caixeiro logado...");
         }
         else if (cookiePerfil == formatStringCookie(GESTOR_DE_COMPRAS)) {
-            alert("Gestor de Compras logado...");
+            // alert("Gestor de Compras logado...");
         }
         else if (cookiePerfil == formatStringCookie(GESTOR_DE_ESTOQUE)) {
-            alert("Gestor de Estoque logado...");
+            // alert("Gestor de Estoque logado...");
         }
         else {// gerente
-            alert("Gerente logado...");
+            // alert("Gerente logado...");
         }
     }
     delete (cookiePerfil);
@@ -76,11 +76,5 @@ $(document).ready(function () {
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })
-
-    /*
-     * Usando plugin "Masked Input"
-     * https://github.com/digitalBush/jquery.maskedinput
-     * */
-    $("#form-cd-us-telefone").mask("(999) 99999-9999");
 
 });
