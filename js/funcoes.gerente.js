@@ -42,28 +42,19 @@ function editarUsuario(id) {
         '<div class="col-sm-7">' +
         '<input id="form-alt-us-telefone" class="form-control" name="telefone" placeholder="Telefone" required="required" value="085986741234"/>' +
         '<span class="help-block with-errors"></span>' +
-        '</div></div></div>' +
+        '</div>' +
+        '</div>' +
+        '<div class="form-group">' +
+        '<div class="col-sm-3"></div>' +
+        '<div class="col-sm-7">' +
+        '<input type="submit" class="form-control btn-default" value="Atualizar"/>' +
+        '</div>' +
+        '</div>' +
         '</form>';
 
     bootbox.dialog({
         title: "João Silva <small>(Gestor de Compras)</small>",
-        message: htmlFomulario,
-        buttons: {
-            cancel: {
-                label: "Cancelar",
-                className: "btn-default",
-                callback: function() {
-                    console.log("As alteracoes para este usuario forao canceladas");
-                }
-            },
-            main: {
-                label: "Atualizar",
-                className: "btn-primary",
-                callback: function() {
-                    console.log("Novos dados deverao ser setados");
-                }
-            }
-        }
+        message: htmlFomulario
     });
 
     // aplicar máscara
