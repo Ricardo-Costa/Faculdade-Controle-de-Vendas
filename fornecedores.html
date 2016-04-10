@@ -48,21 +48,19 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="http://localhost/administrator/panel">Painel</a></li>
-                <li><a href="#">Caixa</a></li>
-                <li>
+                <li class="menu-painel-gestor-de-vendas">
                     <a href="produtos.html"> Produtos </a>
                 </li>
-                <li class="active">
+                <li class="active menu-painel-gestor-de-vendas">
                     <a href="fornecedores.html"> Fornecedores </a>
                 </li>
-                <li>
+                <li class="menu-painel-gerente">
                     <a href="usuarios.html"> Usuários </a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> João <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> João <small id="menu-usuario-tipo"></small> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="index.html">Sair</a></li>
                     </ul>
@@ -86,7 +84,7 @@
                  aria-labelledby="panel-fn-consultar-tab">
                 <div class="panel panel-default my-panel">
                     <!-- Default panel contents -->
-                    <div class="panel-heading">Produtos registrados no sistema.</div>
+                    <div class="panel-heading">Fornecedores registrados no sistema.</div>
                     <div class="panel-body">
                         <form class="form-horizontal" action="#" method="get">
                             <div class="form-group">
@@ -107,44 +105,44 @@
                             <thead>
                             <tr>
                                 <th>Cod.</th>
-                                <th>Modelo</th>
-                                <th>Marca</th>
-                                <th>Versão</th>
+                                <th>Razão Social</th>
+                                <th>CNPJ</th>
+                                <th>Telefone</th>
                                 <th>Opções</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <td>4</td>
-                                <td>Gol</td>
-                                <td>Volkswagem</td>
-                                <td>1.0</td>
+                                <td>CNH New Holland</td>
+                                <td>98.330.527/0001-89</td>
+                                <td>(085) 3371-1234</td>
                                 <td>
-                                    <button type="button" class="btn btn-default btn-sm" onclick="editarProduto(4)" data-toggle="tooltip" data-placement="top" title="Editar"><span class="glyphicon glyphicon-pencil"></span></button>
-                                    <button type="button" class="btn btn-default btn-sm" onclick="relatorioProduto(4)" data-toggle="tooltip" data-placement="top" title="Relatório"><span class="glyphicon glyphicon-list-alt"></span></button>
-                                    <button type="button" class="btn btn-default btn-sm" onclick="excluirProduto(4)" data-toggle="tooltip" data-placement="top" title="Deletar"><span class="glyphicon glyphicon-trash"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="editarFornecedor(4)" data-toggle="tooltip" data-placement="top" title="Editar"><span class="glyphicon glyphicon-pencil"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="relatorioFornecedor(4)" data-toggle="tooltip" data-placement="top" title="Relatório"><span class="glyphicon glyphicon-list-alt"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="excluirFornecedor(4)" data-toggle="tooltip" data-placement="top" title="Deletar"><span class="glyphicon glyphicon-trash"></span></button>
                                 </td>
                             </tr>
                             <tr>
                                 <td>13</td>
-                                <td>Uno</td>
-                                <td>Fiat</td>
-                                <td>1.0</td>
+                                <td>AGCO Massey Ferguson</td>
+                                <td>23.109.256/0001-37</td>
+                                <td>(085) 3371-2222</td>
                                 <td>
-                                    <button type="button" class="btn btn-default btn-sm" onclick="editarProduto(13)" data-toggle="tooltip" data-placement="top" title="Editar"><span class="glyphicon glyphicon-pencil"></span></button>
-                                    <button type="button" class="btn btn-default btn-sm" onclick="relatorioProduto(13)" data-toggle="tooltip" data-placement="top" title="Relatório"><span class="glyphicon glyphicon-list-alt"></span></button>
-                                    <button type="button" class="btn btn-default btn-sm" onclick="excluirProduto(13)" data-toggle="tooltip" data-placement="top" title="Deletar"><span class="glyphicon glyphicon-trash"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="editarFornecedor(13)" data-toggle="tooltip" data-placement="top" title="Editar"><span class="glyphicon glyphicon-pencil"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="relatorioFornecedor(13)" data-toggle="tooltip" data-placement="top" title="Relatório"><span class="glyphicon glyphicon-list-alt"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="excluirFornecedor(13)" data-toggle="tooltip" data-placement="top" title="Deletar"><span class="glyphicon glyphicon-trash"></span></button>
                                 </td>
                             </tr>
                             <tr>
                                 <td>15</td>
-                                <td>Fox</td>
-                                <td>Volkswagem</td>
-                                <td>1.0</td>
+                                <td>PSA Peugeot-Citroën</td>
+                                <td>81.146.235/0001-98</td>
+                                <td>(085) 3371-1111</td>
                                 <td>
-                                    <button type="button" class="btn btn-default btn-sm" onclick="editarProduto(15)" data-toggle="tooltip" data-placement="top" title="Editar"><span class="glyphicon glyphicon-pencil"></span></button>
-                                    <button type="button" class="btn btn-default btn-sm" onclick="relatorioProduto(15)" data-toggle="tooltip" data-placement="top" title="Relatório"><span class="glyphicon glyphicon-list-alt"></span></button>
-                                    <button type="button" class="btn btn-default btn-sm" onclick="excluirProduto(15)" data-toggle="tooltip" data-placement="top" title="Deletar"><span class="glyphicon glyphicon-trash"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="editarFornecedor(15)" data-toggle="tooltip" data-placement="top" title="Editar"><span class="glyphicon glyphicon-pencil"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="relatorioFornecedor(15)" data-toggle="tooltip" data-placement="top" title="Relatório"><span class="glyphicon glyphicon-list-alt"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="excluirFornecedor(15)" data-toggle="tooltip" data-placement="top" title="Deletar"><span class="glyphicon glyphicon-trash"></span></button>
                                 </td>
                             </tr>
                             </tbody>

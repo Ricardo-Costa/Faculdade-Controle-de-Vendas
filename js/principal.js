@@ -16,16 +16,22 @@ $(document).ready(function () {
     // verificar se existe usuário logado e qual o tipo de usuário
     var cookiePerfil = document.cookie;
     if (cookiePerfil) {
+        var menu_usuario_tipo = $("#menu-usuario-tipo");
         if (cookiePerfil == formatStringCookie(CAIXEIRO)) {
+            menu_usuario_tipo.html("(Caixeiro)");
             // alert("Caixeiro logado...");
         }
         else if (cookiePerfil == formatStringCookie(GESTOR_DE_COMPRAS)) {
+            menu_usuario_tipo.html("(Gestor de Compras)");
             // alert("Gestor de Compras logado...");
         }
         else if (cookiePerfil == formatStringCookie(GESTOR_DE_ESTOQUE)) {
+            menu_usuario_tipo.html("(Gestor de Estoque)");
             // alert("Gestor de Estoque logado...");
         }
-        else {// gerente
+        else {
+            // gerente
+            menu_usuario_tipo.html("(Gerente)");
             // alert("Gerente logado...");
         }
     }

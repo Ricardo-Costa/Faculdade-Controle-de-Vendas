@@ -26,3 +26,7 @@ hr.separador {
     border-top: dashed #cecece 1px;
     display: block;
 }
+
+/* Menu de transições para exibição de paineis */
+.menu-painel-gerente { }
+.menu-painel-gestor-de-vendas { }
