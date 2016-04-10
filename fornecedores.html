@@ -1,10 +1,244 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-Br">
 <head>
-    <meta charset="UTF-8">
-    <title></title>
+    <meta charset="utf-8">
+    <title>Fornecedores</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Le styles -->
+    <link href="css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="css/principal.css" media="screen" rel="stylesheet" type="text/css">
+    <!-- http://silviomoreto.github.io/bootstrap-select/examples/ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+    <!-- Scripts prev IE 9 -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/outros/html5shiv.min.js"></script><![endif]-->
+    <!--[if lt IE 9]><script type="text/javascript" src="js/respond.min.js"></script><![endif]-->
+    <script type="text/javascript" src="js/outros/jquery.min.js"></script>
+    <script type="text/javascript" src="js/outros/bootstrap.min.js"></script>
+    <!-- http://bootboxjs.com/ -->
+    <script type="text/javascript" src="js/outros/bootbox.min.js"></script>
+    <!-- http://1000hz.github.io/bootstrap-validator/ -->
+    <script type="text/javascript" src="js/outros/bootstrap.validator.js"></script>
+    <!-- http://digitalbush.com/projects/masked-input-plugin/ -->
+    <script type="text/javascript" src="js/outros/jquery.maskedinput.pack.js"></script>
+    <!-- http://bootsnipp.com/snippets/featured/js-table-filter-simple-insensitive -->
+    <script type="text/javascript" src="js/outros/table.search.js"></script>
+    <!-- http://silviomoreto.github.io/bootstrap-select/examples/ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+    <!-- Meus Script's JS -->
+    <script type="text/javascript" src="js/principal.js"></script>
+    <script type="text/javascript" src="js/funcoes.gestor.compras.js"></script>
+    <script type="text/javascript" src="js/funcoes.gerente.js"></script>
 </head>
 <body>
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand titulo-sistema">Controle de Vendas</a>
+        </div>
 
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="http://localhost/administrator/panel">Painel</a></li>
+                <li><a href="#">Caixa</a></li>
+                <li>
+                    <a href="produtos.html"> Produtos </a>
+                </li>
+                <li class="active">
+                    <a href="fornecedores.html"> Fornecedores </a>
+                </li>
+                <li>
+                    <a href="usuarios.html"> Usuários </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> João <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html">Sair</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="container">
+    <div class="row">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="active">
+                <a onclick="" href="#panel-fn-consultar" role="tab" data-toggle="tab" aria-controls="panel-fn-consultar" aria-expanded="true"> Consultar </a>
+            </li>
+            <li>
+                <a onclick="" href="#panel-fn-incluir" role="tab" data-toggle="tab" aria-controls="panel-fn-incluir" aria-expanded="true"> Incluir </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div id="panel-fn-consultar" role="tabpanel" class="tab-pane fade active in panel-div-tab"
+                 aria-labelledby="panel-fn-consultar-tab">
+                <div class="panel panel-default my-panel">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Produtos registrados no sistema.</div>
+                    <div class="panel-body">
+                        <form class="form-horizontal" action="#" method="get">
+                            <div class="form-group">
+                                <div class="col-sm-3"></div>
+                                <div class="input-group col-sm-7">
+                                    <input name="q" data-tb-target="tb-painel-fn" type="search" class="form-control input-system-search"
+                                           placeholder="Buscar..." required="required" />
+                        <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" name="fetch" value="by_name"><i
+                                class="glyphicon glyphicon-search"></i></button>
+                        </span>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Table -->
+                        <table id="tb-painel-fn" class="table table-bordered table-striped table-list-search">
+                            <thead>
+                            <tr>
+                                <th>Cod.</th>
+                                <th>Modelo</th>
+                                <th>Marca</th>
+                                <th>Versão</th>
+                                <th>Opções</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>4</td>
+                                <td>Gol</td>
+                                <td>Volkswagem</td>
+                                <td>1.0</td>
+                                <td>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="editarProduto(4)" data-toggle="tooltip" data-placement="top" title="Editar"><span class="glyphicon glyphicon-pencil"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="relatorioProduto(4)" data-toggle="tooltip" data-placement="top" title="Relatório"><span class="glyphicon glyphicon-list-alt"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="excluirProduto(4)" data-toggle="tooltip" data-placement="top" title="Deletar"><span class="glyphicon glyphicon-trash"></span></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>Uno</td>
+                                <td>Fiat</td>
+                                <td>1.0</td>
+                                <td>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="editarProduto(13)" data-toggle="tooltip" data-placement="top" title="Editar"><span class="glyphicon glyphicon-pencil"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="relatorioProduto(13)" data-toggle="tooltip" data-placement="top" title="Relatório"><span class="glyphicon glyphicon-list-alt"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="excluirProduto(13)" data-toggle="tooltip" data-placement="top" title="Deletar"><span class="glyphicon glyphicon-trash"></span></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>Fox</td>
+                                <td>Volkswagem</td>
+                                <td>1.0</td>
+                                <td>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="editarProduto(15)" data-toggle="tooltip" data-placement="top" title="Editar"><span class="glyphicon glyphicon-pencil"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="relatorioProduto(15)" data-toggle="tooltip" data-placement="top" title="Relatório"><span class="glyphicon glyphicon-list-alt"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="excluirProduto(15)" data-toggle="tooltip" data-placement="top" title="Deletar"><span class="glyphicon glyphicon-trash"></span></button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="panel-fn-incluir" role="tabpanel" class="tab-pane fade in panel-div-tab"
+                 aria-labelledby="panel-fn-inserir-tab">
+                <div class="panel panel-default my-panel">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">
+                        <p>Cadastrar de fornecedores.</p>
+                    </div>
+                    <div class="panel-body">
+                        <form id="form-cd-fn" class="form-horizontal" data-toggle="validator" role="form">
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="form-cd-fn-cnpj"> CNPJ </label>
+                                <div class="col-sm-5">
+                                    <input id="form-cd-fn-cnpj" class="form-control" name="cnpj" data-minlength="18" maxlength="18" placeholder="Número de cnpj" required />
+                                    <span class="help-block with-errors"></span>
+                                </div>
+                                <script type="text/javascript">
+                                    // máscara de input "CNPJ"
+                                    $("#form-cd-fn-cnpj").mask("99.999.999/9999-99");
+                                </script>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="form-cd-fn-razao-social"> Razão Social </label>
+                                <div class="col-sm-5">
+                                    <input id="form-cd-fn-razao-social" class="form-control" name="razao_social" data-minlength="5" data-error="Mínimo 5 e máximo 100 caracteres alfanuméricos incluindo _ e -." maxlength="100" placeholder="Razão Social" required pattern="[A-Za-z0-9_-\s]{5,100}" title="Mínimo 5 e máximo 100 caracteres alfanuméricos incluindo _ e -." />
+                                    <span class="help-block with-errors"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="form-cd-fn-endereco"> Endereço </label>
+                                <div class="col-sm-5">
+                                    <input id="form-cd-fn-endereco" class="form-control" name="endereco" data-minlength="4" maxlength="100" placeholder="Endereço" required title="Mínimo 4 e máximo 100 caracteres." />
+                                    <span class="help-block with-errors"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="form-cd-fn-complemento"> Complemento </label>
+                                <div class="col-sm-5">
+                                    <textarea id="form-cd-fn-complemento" class="form-control" name="complemento" maxlength="100" title="Máximo 100 caracteres."></textarea>
+                                    <span class="help-block with-errors"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="form-cd-fn-cep"> CEP </label>
+                                <div class="col-sm-2">
+                                    <input id="form-cd-fn-cep" class="form-control" name="cep" data-minlength="9" maxlength="9" placeholder="Número do CEP" required />
+                                    <span class="help-block with-errors"></span>
+                                </div>
+                                <script type="text/javascript">
+                                    // máscara do input de CEP
+                                    $("#form-cd-fn-cep").mask("99999-999");
+                                </script>
+                                <label class="control-label col-sm-1" for="form-cd-fn-telefone"> Fone </label>
+                                <div class="col-sm-2">
+                                    <input id="form-cd-fn-telefone" class="form-control" name="telefone" placeholder="Telefone" required="required" />
+                                    <span class="help-block with-errors"></span>
+                                </div>
+                                <script type="text/javascript">
+                                    // máscara do input de telefone
+                                    $("#form-cd-fn-telefone").mask("(999) 9999-9999");
+                                </script>
+                            </div>
+							<div class="form-group">
+                                <label class="control-label col-sm-3" for="form-cd-fn-cidade"> Cidade </label>
+                                <div class="col-sm-5">
+                                    <input id="form-cd-fn-cidade" class="form-control" name="cidade" maxlength="100" placeholder="Cidade" required />
+                                    <span class="help-block with-errors"></span>
+                                </div>
+                            </div>
+							<div class="form-group">
+                                <label class="control-label col-sm-3" for="form-cd-fn-bairro"> Bairro </label>
+                                <div class="col-sm-5">
+                                    <input id="form-cd-fn-bairro" class="form-control" name="bairro" maxlength="100" placeholder="Bairro" required />
+                                    <span class="help-block with-errors"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-3"></div>
+                                <div class="col-sm-5">
+                                    <input type="submit" class="form-control btn-default" value="Cadastrar"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
