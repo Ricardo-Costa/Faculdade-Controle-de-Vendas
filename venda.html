@@ -47,19 +47,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="#" class="navbar-brand titulo-sistema">Controle de Vendas</a>
+            <a href="#" class="navbar-brand titulo-sistema">Modo de Vendas</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> João <small id="menu-usuario-tipo"></small> <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="index.html">Sair</a></li>
-                    </ul>
-                </li>
-            </ul>
+				<button class="btn btn-danger btn-sm" onclick="location.href='fechar-modo-vendas.html'"><span class="glyphicon glyphicon-off"></span></button>
+			</ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
@@ -67,7 +62,7 @@
     <div class="row">
         <div class="panel panel-default my-panel">
             <!-- Default panel contents -->
-            <div class="panel-heading"><h4>Pedido(s) <small> - Modo de Vendas</small></h4></div>
+            <div class="panel-heading"><p>Formulário Principal de Pedidos</p></div>
             <div class="panel-body">
                 <form id="form-mv" class="form-horizontal" data-toggle="validator" role="form">
                     <div class="form-group">
@@ -201,4 +196,4 @@
     </div>
 </div>
 </body>
-</html> 
+</html>
