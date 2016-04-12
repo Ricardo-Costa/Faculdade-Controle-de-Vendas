@@ -13,6 +13,18 @@ $(document).ready(function (){
     // máscara do input de telefone
     $("#form-cd-fn-telefone").mask("(999) 9999-9999");
 
+    // máscara do input de versao
+    $("#form-cd-pd-versao").mask("9.9");
+
+    // máscara do input de versao
+    $("#form-gc-pd-versao").mask("9.9");
+
+    // máscara do input de ano fabricacao
+    $("#form-cd-pd-fabricacao").mask("9999");
+
+    // máscara do input de ano fabricacao
+    $("#form-gc-pd-fabricacao").mask("9999");
+
 });
 
 /**
@@ -117,52 +129,16 @@ function excluirFornecedor(id) {
 }
 
 /**
- * Exibir relatório do Fornecedor corespondente
+ * Realizar  exclusao do item
  *
- * @param id - Identificador
+ * @param id - Identificador do produto
  */
-function relatorioFornecedor(id) {
-    var htmlRelatorio = '<div>' +
-        '<p>Funcionário responsável pela gestão dos cadastros de produtos e ' +
-        'fornecedores, e pela emissão e acompanhamento de pedidos de compra.</p>' +
-        '<hr class="separador"/>' +
-        '<table class="table">' +
-        '<tbody>' +
-        '<tr>' +
-        '<th scope="row">Código</th><td>1503</td>' +
-        '<th scope="row">Data de Cadastro</th><td>15/03/2014</td>' +
-        '</tr>' +
-        '<tr>' +
-        '<th scope="row">Nome</th><td>João da Silva</td>' +
-        '<th scope="row">Tipo</th><td>Gestor de Compras</td>' +
-        '</tr>' +
-        '<tr>' +
-        '<th scope="row">E-mail</th><td>joao.silva@mail.com</td>' +
-        '<th scope="row">Operações Efetivadas</th><td>501, 505, 500...</td>' +
-        '</tr>' +
-        '<tr>' +
-        '<th scope="row">Telefone</th><td>(085) 97856-1234</td>' +
-        '<th scope="row">Operações Canceladas</th><td>503, 503, 502...</td>' +
-        '</tr>' +
-        '</tbody></table>' +
-        '</div>';
-
-    bootbox.dialog({
-        title: "João Silva <small>(Gestor de Compras)</small>",
-        message: htmlRelatorio,
-        buttons: {
-            print: {
-                label: "<span class='glyphicon glyphicon-print'></span>",
-                className: "btn-default",
-                callback: function() {
-                    console.log("Realizar operação de impressão...");
-                }
-            },
-            main: {
-                label: "OK",
-                className: "btn-primary"
-            }
+function gc_excluirItemPedido(id) {
+    bootbox.confirm("Deseja realmente excluir este item do pedido?", function(result) {
+        if (result) {
+            console.log("Produto { id = "+ id +" } devera ser excluido.")
+        } else {
+            console.log("Produto { id = "+ id +" } NAO deve ser excluido.")
         }
     });
-    delete (htmlRelatorio);
 }

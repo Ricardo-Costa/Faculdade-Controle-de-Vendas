@@ -72,3 +72,19 @@ $(document).ready(function (){
     $("#form-mv-valor-l").mask("99.999,99");
 
 });
+
+
+/**
+ * Realizar  exclusao do item
+ *
+ * @param id - Identificador do produto
+ */
+function c_excluirItemPedido(id) {
+    bootbox.confirm("Deseja realmente excluir este item do pedido?", function(result) {
+        if (result) {
+            console.log("Produto { id = "+ id +" } devera ser excluido.")
+        } else {
+            console.log("Produto { id = "+ id +" } NAO deve ser excluido.")
+        }
+    });
+}

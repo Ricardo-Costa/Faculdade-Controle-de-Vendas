@@ -107,6 +107,6 @@ $(document).ready(function () {
     // iniciando os componentes toggle's
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
-    })
+    });
 
 });
