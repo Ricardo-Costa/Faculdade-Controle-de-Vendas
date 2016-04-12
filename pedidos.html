@@ -85,6 +85,9 @@
             <li class="active">
                 <a onclick="" href="#panel-fn-pedido" role="tab" data-toggle="tab" aria-controls="panel-fn-pedido" aria-expanded="true"> Pedido </a>
             </li>
+            <li>
+                <a onclick="" href="#panel-fn-consulta-pedido" role="tab" data-toggle="tab" aria-controls="panel-fn-consulta-pedido" aria-expanded="true"> Consultar </a>
+            </li>
         </ul>
         <div class="tab-content">
             <div id="panel-fn-pedido" role="tabpanel" class="tab-pane fade in panel-div-tab active"
@@ -210,6 +213,75 @@
                         </form>
                     </div>
                 </div>
+            </div>
+            <div id="panel-fn-consulta-pedido" role="tabpanel" class="tab-pane fade in panel-div-tab active"
+                 aria-labelledby="panel-fn-consulta-pedido-tab">
+
+                <div class="panel panel-default my-panel">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Pedidos de Compras registrados no sistema.</div>
+                    <div class="panel-body">
+                        <form class="form-horizontal" action="#" method="get">
+                            <div class="form-group">
+                                <div class="col-sm-3"></div>
+                                <div class="input-group col-sm-7">
+                                    <input name="q" data-tb-target="tb-painel-pd" type="search" class="form-control input-system-search"
+                                           placeholder="Buscar..." required="required" />
+                        <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" name="fetch" value="by_name"><i
+                                class="glyphicon glyphicon-search"></i></button>
+                        </span>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Table -->
+                        <table id="tb-painel-pd" class="table table-bordered table-striped table-list-search">
+                            <thead>
+                            <tr>
+                                <th>Cod.</th>
+                                <th>Fornecedora</th>
+                                <th>Produtos/Itens</th>
+                                <th>Situação</th>
+                                <th>Opções</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>4</td>
+                                <td>XYZ LTDA</td>
+                                <td>Celta/Prisma</td>
+                                <td><span class="pedido-andamento">Em andamento...</span></td>
+                                <td>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="editarPedidoCompra(4)" data-toggle="tooltip" data-placement="top" title="Editar"><span class="glyphicon glyphicon-pencil"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="cancelarPedidoCompra(4)" data-toggle="tooltip" data-placement="top" title="Cancelar"><span class="glyphicon glyphicon-remove"></span></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>ZZZ Ltda</td>
+                                <td>Fiat/Fox</td>
+                                <td><span class="pedido-cancelado">Cancelado</span></td>
+                                <td>
+                                    <button type="button" class="btn btn-default btn-sm disabled" disabled onclick="editarPedidoCompra(13)" data-toggle="tooltip" data-placement="top" title="Editar"><span class="glyphicon glyphicon-pencil"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm disabled" disabled onclick="cancelarPedidoCompra(13)" data-toggle="tooltip" data-placement="top" title="Cancelar"><span class="glyphicon glyphicon-remove"></span></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>YYY Ltda</td>
+                                <td>Gol/Fox/Fiat Punto</td>
+                                <td><span class="pedido-concluido">Concluído</span></td>
+                                <td>
+                                    <button type="button" class="btn btn-default btn-sm disabled" disabled onclick="editarPedidoCompra(15)" data-toggle="tooltip" data-placement="top" title="Editar"><span class="glyphicon glyphicon-pencil"></span></button>
+                                    <button type="button" class="btn btn-default btn-sm disabled" disabled onclick="cancelarPedidoCompra(15)" data-toggle="tooltip" data-placement="top" title="Cancelar"><span class="glyphicon glyphicon-remove"></span></button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

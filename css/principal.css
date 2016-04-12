@@ -36,3 +36,14 @@ hr.separador {
 #bem-vindo {
     text-align: center;
 }
+
+/* Estilo "span" tabela Pedidos d Compras */
+span.pedido-concluido {
+    color: green;
+}
+span.pedido-cancelado {
+    color: darkred;
+}
+span.pedido-andamento {
+    color: #6e6e6e;
+}

@@ -2,7 +2,7 @@
 <html lang="pt-Br">
 <head>
     <meta charset="utf-8">
-    <title>Sistema de Controle de Vendas</title>
+    <title>Acesso Restrito</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Le styles -->
@@ -37,7 +37,12 @@
         <div class="col-sm-6">
             <div id="pagina-login" class="page panel-default">
                 <div class="panel-heading">
-                    <h2>Login</h2>
+                    <h2>Acesso Restrito</h2>
+                    <p>Entrar em Modo de Vendas</p>
+                    <ul>
+                        <li><p>Ação de abertura</p></li>
+                        <li><p>Acesso restrito ao Gerente</p></li>
+                    </ul>
                 </div>
                 <div class="panel-body">
                     <!--
@@ -47,7 +52,7 @@
 
                      -->
 
-                    <form class="form-horizontal" method="post" action="inicio.html" data-toggle="validator" role="form">
+                    <form class="form-horizontal" method="post" action="venda.html" data-toggle="validator" role="form">
                         <div id="div-form-login-info-email" class="form-group">
                             <label for="login_email" class="control-label col-sm-3">E-mail</label>
 
@@ -69,30 +74,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="set-usuario-tipo" class="control-label col-sm-3"> Perfil </label>
-                            <div class="col-sm-5">
-                                <select id="set-usuario-tipo" class="form-control selectpicker">
-                                    <option value="1">Caixeiro</option>
-                                    <option value="2">Gestor de Compras</option>
-                                    <option value="3">Gestor de Estoque</option>
-                                    <option value="4">Gerente</option>
-                                </select>
-                                <script type="text/javascript">
-                                    // por padrão iniciar com perfil de "Caixeiro"
-                                    document.cookie = "perfil=1";// <option value="1">Caixeiro</option>
-
-                                    $("#set-usuario-tipo").change(function (){
-                                        console.log($(this).val());
-                                        document.cookie = "perfil=" + $(this).val();
-                                    });
-                                </script>
-                                <small class="descricao">Selecione perfil de usuário.</small>
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <div class="col-sm-3"></div>
                             <div class="col-sm-7">
-                                <input id="input-logar" type="submit" class="form-control btn btn-default" value="Login"/>
+                                <input id="input-logar" type="submit" class="form-control btn btn-default" value="Acessar"/>
                             </div>
                         </div>
                     </form>

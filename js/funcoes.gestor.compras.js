@@ -142,3 +142,111 @@ function gc_excluirItemPedido(id) {
         }
     });
 }
+
+
+/**
+ * Editar dados do Pedido de Compra
+ *
+ * @param id - Identificador
+ */
+function editarPedidoCompra(id) {
+    var htmlFomulario =
+        '<div class="panel panel-default my-panel">' +
+        '<div class="panel-heading"><p>Formulário de realização depedidos.</p></div>' +
+        '<div class="panel-body">' +
+        '<form id="form-gc-pd-tb" class="form-horizontal" data-toggle="validator" role="form">' +
+        '<div class="form-group">' +
+        '<label class="control-label col-sm-3" for="form-gc-pd-tbs-qtd"> Quantidade </label>' +
+        '<div class="col-sm-3">' +
+        '<input id="form-gc-pd-tb-qtd" class="form-control" name="qtd" type="number" min="1" placeholder="Quantidade" required pattern="[0-9]{1,}" />' +
+        '<span class="help-block with-errors"></span>' +
+        '</div></div>' +
+        '<div class="form-group">' +
+        '<label class="control-label col-sm-3" for="form-gc-pd-tb-fornecedor"> Fornecedor </label>' +
+        '<div class="col-sm-5">' +
+        '<select id="form-gc-pd-tb-fornecedor" name="fornecedor" class="form-control" required="required">' +
+        '<option value="1">XYZ Ltda</option>' +
+        '<option value="2">ZZZ LTDA</option>' +
+        '<option value="3">YYY LTDA</option>' +
+        '</select></div></div>' +
+        '<div class="form-group">' +
+        '<label for="form-gc-pd-tb-marca" class="control-label col-sm-3"> Marca </label>' +
+        '<div class="col-sm-5">' +
+        '<select id="form-gc-pd-tb-marca" name="marca" class="form-control" required="required">' +
+        '<option value="1">Fiat</option>' +
+        '<option value="2">Volkswagem</option>' +
+        '<option value="3">Renault</option>' +
+        '<option value="4">Toyota</option>' +
+        '</select>' +
+        '<small class="descricao">Selecione o perfil de usuário a ser cadastrado.</small></div></div>' +
+        '<div class="form-group">' +
+        '<label class="control-label col-sm-3" for="form-gc-pd-tb-modelo"> Modelo </label>' +
+        '<div class="col-sm-7">' +
+        '<input id="form-gc-pd-tb-modelo" class="form-control" name="modelo" data-minlength="2" data-error="Mínimo 2 e máximo 50 caracteres." maxlength="50" placeholder="Modelo do veículo" required pattern="[A-Za-z0-9_-]{2,50}" title="Mínimo 2 e máximo 50 caracteres." />' +
+        '<span class="help-block with-errors"></span></div></div>' +
+        '<div class="form-group">' +
+        '<label class="control-label col-sm-3" for="form-gc-pd-tb-fabricacao"> Ano Fabricação </label>' +
+        '<div class="form-group col-sm-3">' +
+        '<input id="form-gc-pd-tb-fabricacao" class="form-control" name="fabricacao" data-minlength="4" maxlength="4" placeholder="Exemplo: 2016" required pattern="[0-9]{4}" />' +
+        '<span class="help-block with-errors"></span></div>' +
+        '<label class="control-label col-sm-2" for="form-gc-pd-tb-versao"> Versão </label>' +
+        '<div class="form-group col-sm-3">' +
+        '<input id="form-gc-pd-tb-versao" class="form-control" name="versao" data-minlength="3" maxlength="3" placeholder="Exemplo: 1.0" required pattern="[0-9].[0-9]" />' +
+        '<span class="help-block with-errors"></span></div></div>' +
+        '<div class="form-group">' +
+        '<label class="control-label col-sm-3" for="form-gc-pd-tb-cor"> Cor </label>' +
+        '<div class="col-sm-7">' +
+        '<select id="form-gc-pd-tb-cor" name="cor" class="form-control" required="required">' +
+        '<option value="1">Branco</option>' +
+        '<option value="2">Prata</option>' +
+        '<option value="3">Preto</option>' +
+        '<option value="4">Vermelho</option>' +
+        '</select></div></div>' +
+        '<div class="form-group">' +
+        '<label class="control-label col-sm-3" for="form-gc-pd-tb-observacao"> Observação </label>' +
+        '<div class="col-sm-7">' +
+        '<textarea id="form-gc-pd-tb-observacao" class="form-control" name="observacao"></textarea></div></div>' +
+        '<div class="form-group"><div class="col-sm-3"></div>' +
+        '<div class="col-sm-5">' +
+        '<input type="submit" class="form-control btn-default" value="Adicionar"/></div></div></form></div></div>' +
+        '<div class="panel panel-default my-panel">' +
+        '<div class="panel-heading"><p>Itens do Pedido:</p></div>' +
+        '<div class="panel-body">' +
+        '<table class="table table-bordered table-striped">' +
+        '<thead><tr><th>Qtd</th><th>Modelo</th><th>Marca</th><th>Valor Unitário</th><th>Opções</th></tr></thead>' +
+        '<tbody><tr><td>5</td><td>Gol</td><td>Volkswagem</td><td>R$ 38.663,38</td><td>' +
+        '<button type="button" class="btn btn-default btn-sm" onclick="gc_excluirItemPedido(15)" data-toggle="tooltip" data-placement="top" title="Remover"><span class="glyphicon glyphicon-remove"></span></button>' +
+        '</td></tr></tbody></table>' +
+        '<form class="form-horizontal">' +
+        '<div class="form-group"><div class="col-sm-9"></div>'+
+        '<div class="col-sm-3">' +
+        '<input class="form-control btn-primary" id="gc-finalizar-pedido" name="finalizar_pedido" type="submit" value="Atualizar" />' +
+        '</div></div></form></div></div>';
+
+    bootbox.dialog({
+        title: "Alterar dados do Pedido",
+        message: htmlFomulario
+    });
+
+    // máscara do input de versao
+    $("#form-gc-pd-tb-versao").mask("9.9");
+    // máscara do input de ano fabricacao
+    $("#form-gc-pd-tb-fabricacao").mask("9999");
+
+    delete (htmlFomulario);
+}
+
+/**
+ * Realizar cancelamento do pedido atual de compra.
+ *
+ * @param id - Identificador
+ */
+function cancelarPedidoCompra(id) {
+    bootbox.confirm("Deseja realmente cancelar este pedido?", function(result) {
+        if (result) {
+            console.log("Pedido cancelado.")
+        } else {
+            console.log("Pedido NAO cancelado.")
+        }
+    });
+}
