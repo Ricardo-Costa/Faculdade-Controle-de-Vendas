@@ -36,10 +36,6 @@ function exibirMenu(usuarioValor) {
 
 $(document).ready(function () {
 
-    $('#form-mv-data').datepicker({
-        format: 'dd-mm-yyyy'
-    });
-
     // TODO - verificar string de cookie
     // verificar se existe usuário logado e qual o tipo de usuário
     var cookiePerfil = document.cookie;

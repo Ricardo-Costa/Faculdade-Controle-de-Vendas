@@ -2,6 +2,19 @@
  * Created by Ricardo on 07/04/2016.
  */
 
+$(document).ready(function (){
+
+    // máscara de input "CNPJ"
+    $("#form-cd-fn-cnpj").mask("99.999.999/9999-99");
+
+    // máscara do input de CEP
+    $("#form-cd-fn-cep").mask("99999-999");
+
+    // máscara do input de telefone
+    $("#form-cd-fn-telefone").mask("(999) 9999-9999");
+
+});
+
 /**
  * Editar dados do Produto
  *

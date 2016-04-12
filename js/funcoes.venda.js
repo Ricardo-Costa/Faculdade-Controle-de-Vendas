@@ -1,7 +1,37 @@
 /**
  * Created by Ricardo on 11/04/2016.
  */
+
+/**
+ * Retorna Data Atual formadata
+ *
+ * @returns {string}
+ */
+function dataAtual() {
+    var hoje = new Date();
+    var dd = hoje.getDate();
+    var mm = hoje.getMonth()+1; //Janeiro é 0
+    var yyyy = hoje.getFullYear();
+
+    if(dd<10) {
+        dd='0'+dd
+    }
+    if(mm<10) {
+        mm='0'+mm
+    }
+    return dd+'-'+mm+'-'+yyyy;
+}
+
 $(document).ready(function (){
+
+    // input principal de data do processo
+    $('#form-mv-data').datepicker({
+        format: 'dd-mm-yyyy'
+    });
+    $(this).val(dataAtual());
+    $(this).mask("99-99-9999");
+    // input Data de emissao de Nota Fiscal
+    $('#form-mv-data-emissao').val(dataAtual());
 
     // filtro para campos numéricos de 1 - 10 dígitos
     /* var filtroNum = /[0-9]{1,10}/;

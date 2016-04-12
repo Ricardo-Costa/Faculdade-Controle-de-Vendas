@@ -2,7 +2,7 @@
 <html lang="pt-Br">
 <head>
     <meta charset="utf-8">
-    <title>Modo de Venda</title>
+    <title>Modo de Vendas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Le styles -->
@@ -67,72 +67,87 @@
     <div class="row">
         <div class="panel panel-default my-panel">
             <!-- Default panel contents -->
-            <div class="panel-heading"><h3>Pedido <small>(Modo de Vendas)</small></h3></div>
+            <div class="panel-heading"><h4>Pedido(s) <small> - Modo de Vendas</small></h4></div>
             <div class="panel-body">
-                <form id="form-mv" class="form-horizontal">
+                <form id="form-mv" class="form-horizontal" data-toggle="validator" role="form">
                     <div class="form-group">
                         <label class="control-label col-sm-1" for="form-mv-codigo"> Código </label>
-                        <div class="col-sm-2">
+                        <div class="form-group col-sm-2">
                             <input id="form-mv-codigo" class="form-control" type="number" name="codigo" min="1" maxlength="10" required placeholder="Código" />
+                            <span class="help-block with-errors"></span>
                         </div>
                         <label class="control-label col-sm-1" for="form-mv-data"> Data </label>
-                        <div class="col-sm-2">
-                            <input id="form-mv-data" class="form-control" name="data" required placeholder="Data" />
+                        <div class="form-group col-sm-2">
+                            <input id="form-mv-data" class="form-control" name="data" required type="Exemplo: 11-04-2016" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" placeholder="Data" />
+                            <span class="help-block with-errors"></span>
                         </div>
                         <label class="control-label col-sm-1" for="form-mv-qtd"> Qtd </label>
-                        <div class="col-sm-2">
+                        <div class="form-group col-sm-2">
                             <input id="form-mv-qtd" class="form-control" type="number" min="1" max="10" name="qtd" placeholder="Quantidade" required />
+                            <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <hr/>
                     <div class="form-group">
                         <label class="control-label col-sm-1" for="form-mv-cliente"> Cliente </label>
-                        <div class="col-sm-5">
-                            <input id="form-mv-cliente" class="form-control" name="cliente" required data-minlength="3" maxlength="100" placeholder="Nome Completo do Cliente" />
+                        <div class="form-group col-sm-5">
+                            <input id="form-mv-cliente" class="form-control" name="cliente" required data-minlength="3" data-error="Mínimo 3 caracteres." title="Mínimo 3 caracteres." maxlength="100" placeholder="Nome Completo do Cliente" />
+                            <span class="help-block with-errors"></span>
                         </div>
                         <label class="control-label col-sm-1" for="form-mv-cpf"> CPF </label>
-                        <div class="col-sm-3">
-                            <input id="form-mv-cpf" class="form-control" name="cpf" required placeholder="CPF" />
+                        <div class="form-group col-sm-3">
+                            <input id="form-mv-cpf" class="form-control" name="cpf" required placeholder="CPF" title="Digite os números do CPF." />
+                            <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <hr/>
                     <div class="form-group">
                         <label class="control-label col-sm-1" for="form-mv-descricao"> Descrição </label>
-                        <div class="col-sm-3">
-                            <input id="form-mv-descricao" class="form-control" name="descricao" required data-minlength="3" maxlength="100" placeholder="Descrição do Produto" />
+                        <div class="form-group col-sm-3">
+                            <input id="form-mv-descricao" class="form-control" name="descricao" maxlength="100" placeholder="Descrição do Produto" />
+                            <span class="help-block with-errors"></span>
                         </div>
                         <label class="control-label col-sm-1" for="form-mv-marca"> Marca </label>
-                        <div class="col-sm-3">
-                            <input id="form-mv-marca" class="form-control" name="marca" required maxlength="100" placeholder="Modelo" />
+                        <div class="form-group col-sm-3">
+                            <input id="form-mv-marca" class="form-control disabled" disabled name="marca" maxlength="100" placeholder="Modelo" />
+                            <span class="help-block with-errors"></span>
                         </div>
                         <label class="control-label col-sm-1" for="form-mv-modelo"> Modelo </label>
-                        <div class="col-sm-3">
-                            <input id="form-mv-modelo" class="form-control" name="modelo" required maxlength="100" placeholder="Marca" />
+                        <div class="form-group col-sm-3">
+                            <input id="form-mv-modelo" class="form-control disabled" disabled name="modelo" maxlength="100" placeholder="Marca" />
+                            <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <hr/>
                     <div class="form-group">
                         <label class="control-label col-sm-1" for="form-mv-valor-nota">NF</label>
-                        <div class="col-sm-2">
-                            <input id="form-mv-valor-nota" class="form-control" type="number" name="nota_fiscal" required min="1" placeholder="Código" />
+                        <div class="form-group col-sm-2">
+                            <input id="form-mv-valor-nota" class="form-control disabled" disabled type="number" name="nota_fiscal" required min="1" placeholder="Código" />
                         </div>
-                        <label class="control-label col-sm-2" for="form-mv-total"> Total Itens </label>
-                        <div class="col-sm-1">
-                            <input id="form-mv-total" class="form-control" type="number" min="1" name="total" required placeholder="Total" />
+                        <label class="control-label col-sm-1" for="form-mv-cnpj">CNPJ</label>
+                        <div class="form-group col-sm-2">
+                            <input id="form-mv-cnpj" class="form-control disabled" disabled name="cnpj" value="12.123.267/6773-27" required placeholder="CNPJ" />
+                        </div>
+                        <label class="control-label col-sm-2" for="form-mv-data-emissao"> Data Emissão </label>
+                        <div class="form-group col-sm-2">
+                            <input id="form-mv-data-emissao" class="form-control disabled" disabled name="data_emissao" required placeholder="Data de Emissão" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-1" for="form-mv-valor-b">Valor Bruto</label>
-                        <div class="col-sm-3">
+                        <div class="form-group col-sm-3">
                             <input id="form-mv-valor-b" class="form-control" name="valor_bru" required data-minlength="3" maxlength="100" placeholder="Valor" />
+                            <span class="help-block with-errors"></span>
                         </div>
                         <label class="control-label col-sm-1" for="form-mv-valor-l">Valor Líquido</label>
-                        <div class="col-sm-3">
+                        <div class="form-group col-sm-3">
                             <input id="form-mv-valor-l" class="form-control" name="valor_liq" required maxlength="100" placeholder="Valor" />
+                            <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <hr/>
                     <div class="form-group">
+                        <div class="col-sm-6"></div>
                         <div class="col-sm-3">
                             <input type="reset" class="form-control btn-d" value="Limpar"/>
                         </div>
@@ -145,7 +160,7 @@
         </div>
         <div class="panel panel-default my-panel">
             <!-- Default panel contents -->
-            <div class="panel-heading"><h3>Produto</h3></div>
+            <div class="panel-heading"><h4>Produto(s)</h4></div>
             <div class="panel-body">
                 <table class="table table-bordered table-striped">
                     <thead>
@@ -164,11 +179,23 @@
                         <td>Volkswagem</td>
                         <td>R$ 38.663,38</td>
                         <td>
-                            <button type="button" class="btn btn-default btn-sm" onclick="excluirProduto(15)" data-toggle="tooltip" data-placement="top" title="Cancelar"><span class="glyphicon glyphicon-remove"></span></button>
+                            <button type="button" class="btn btn-default btn-sm" onclick="excluirProduto(15)" data-toggle="tooltip" data-placement="top" title="Remover"><span class="glyphicon glyphicon-remove"></span></button>
                         </td>
                     </tr>
                     </tbody>
                 </table>
+
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-3">
+                            <input class="form-control btn-danger" id="cancelar-pedido" name="cancelar_pedido" type="submit" value="Cancelar Pedido" />
+                        </div>
+                        <div class="col-sm-3">
+                            <input class="form-control btn-primary" id="finalizar-pedido" name="finalizar_pedido" type="submit" value="Finalizar Pedido" />
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
