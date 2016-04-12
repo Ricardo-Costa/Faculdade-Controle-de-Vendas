@@ -30,3 +30,9 @@ hr.separador {
 /* Menu de transições para exibição de paineis */
 .menu-painel-gerente { }
 .menu-painel-gestor-de-compras { }
+.menu-painel-gestor-de-estoque { }
+
+/* p > apresentação tela de início */
+#bem-vindo {
+    text-align: center;
+}

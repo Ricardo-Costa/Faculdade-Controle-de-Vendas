@@ -2,6 +2,11 @@
  * Created by Ricardo on 05/04/2016.
  */
 
+$(document).ready(function (){
+    // máscara do input de telefone
+    $("#form-cd-us-telefone").mask("(999) 9999-9999");
+});
+
 /**
  * Editar dados do usuário
  *
